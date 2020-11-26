@@ -12,4 +12,6 @@ class User < ApplicationRecord
 
   # 送信されたパスワードを暗号化した上で、テーブルのpassword_digestというカラムに格納する
   has_secure_password
+
+  has_many :topics
 end
