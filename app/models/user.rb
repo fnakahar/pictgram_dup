@@ -14,4 +14,7 @@ class User < ApplicationRecord
   has_secure_password
 
   has_many :topics
+  has_many :favorites
+  # favoriteモデルを通じて、ユーザーがいいねしたトピック(favorite_topics)がどれかを抽出できる。
+  has_many :favorite_topics, through: :favorites, source: 'topic'
 end

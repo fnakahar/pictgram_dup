@@ -26,7 +26,7 @@
 <!-- if~else分に=はいらない。表示対象ではなく純粋な制御文だから -->
           <% if logged_in? %>
             <li>
-              <%= link_to '#' do %>
+              <%= link_to favorites_path do %>
                 <%= image_tag "icons/heart.png" %>
               <% end %>
             </li>

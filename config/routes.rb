@@ -9,9 +9,11 @@ Rails.application.routes.draw do
 
   resources :users
   resources :topics
+  resources :favorites
 
   get   '/login',   to: 'sessions#new'
   post  '/login',   to: 'sessions#create'
-  delete   '/logout',  to: 'sessions#destroy'
+  delete '/logout',  to: 'sessions#destroy'
 
+  delete '/favorites', to:'favorites#destroy'
 end

@@ -21,8 +21,8 @@ class TopicsController < ApplicationController
 
   def index
     if logged_in?
-      # Topic.allでTopicモデル内の全レコードを@topicsへ代入にしている
-      @topics = Topic.all
+      # Topic.allでTopicモデル内の全投稿とそれぞれの投稿に誰がいいねをしているかのfavorite_usersの情報をキャッシュし、@topicsへ代入にしている
+      @topics = Topic.all.includes(:favorite_users)
     else
       redirect_to login_path, danger: 'ログインしてください'
     end
