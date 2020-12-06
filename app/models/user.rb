@@ -17,4 +17,8 @@ class User < ApplicationRecord
   has_many :favorites
   # favoriteモデルを通じて、ユーザーがいいねしたトピック(favorite_topics)がどれかを抽出できる。
   has_many :favorite_topics, through: :favorites, source: 'topic'
+
+  has_many :comments
+  has_many :comments_topics, through: :comments, source: 'topic'
+
 end

@@ -20,13 +20,22 @@
                 <%= image_tag 'icons/heart-red.png', class: 'topic-index-icon' %>　<%= topic.favorites.count %>
               <% end %>
             <% end %>
-              <%= image_tag 'icons/comment.png', class: 'topic-index-icon' %>
+              <%= link_to new_comment_path(topic_id: topic.id), method: :get do %>
+                <%= image_tag 'icons/comment.png', class: 'topic-index-icon' %>
+              <% end %>
             <p class="topic-text">
               <%= topic.description %>
             </p>
+            <h2>Comment</h2>
+            <p class="topic-text">
+              <% topic.comments.each do |comment| %>
+                <p><%= comment.description %></p>
+                <p>by <%= comment.user.name %></p>
+              <% end %>
+            </p>
           </div>
         </div>
-      </div>
+      </div
       <% end %>
   </div>
 </div>

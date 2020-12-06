@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'comments/new'
+  get 'comments/create'
   get 'topics/new'
   get  'sessions/new'
   get  'users/new'
@@ -10,6 +12,7 @@ Rails.application.routes.draw do
   resources :users
   resources :topics
   resources :favorites
+  resources :comments
 
   get   '/login',   to: 'sessions#new'
   post  '/login',   to: 'sessions#create'
